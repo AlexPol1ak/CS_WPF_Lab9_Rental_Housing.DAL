@@ -22,12 +22,15 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 
         public void Create(House entity)
         {
-            throw new NotImplementedException();
+            houses.Add(entity);
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var h = houses.Find(id);
+            if(h is null) return false;
+            houses.Remove(h);
+            return true;
         }
 
         public IQueryable<House> Find(Expression<Func<House, bool>> predicate)
@@ -37,17 +40,23 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 
         public House Get(int id, params string[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<House> query = houses;
+            foreach(var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query.First(h=> h.HouseId == id);
         }
 
         public IQueryable<House> GetAll()
         {
-            throw new NotImplementedException();
+            return houses.AsQueryable();
         }
 
         public void Update(House entity)
         {
-            throw new NotImplementedException();
+            houses.Update(entity);
         }
+
     }
 }

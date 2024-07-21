@@ -25,7 +25,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             throw new NotImplementedException();
         }
