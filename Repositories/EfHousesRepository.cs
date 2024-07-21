@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 {
+    /// <summary>
+    /// Encapsulates CRUD operations on the Houses table.
+    /// </summary>
     public class EfHousesRepository : IRepository<House>
     {
         private readonly DbSet<House> houses;
@@ -35,7 +38,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 
         public IQueryable<House> Find(Expression<Func<House, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return houses.Where(predicate);
         }
 
         public House Get(int id, params string[] includes)

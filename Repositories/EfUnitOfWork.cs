@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 {
+    /// <summary>
+    /// Provides access to model repositories.
+    /// </summary>
     public class EfUnitOfWork : IUnitOfWork
     {
         private readonly HousingContext context;

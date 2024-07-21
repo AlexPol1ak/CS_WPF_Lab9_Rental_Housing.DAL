@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 {
+    /// <summary>
+    /// Encapsulates CRUD operations on the Apartments table.
+    /// </summary>
     public class EfApartmentsRepository : IRepository<Apartment>
     {
         private readonly DbSet<Apartment> apartments;
@@ -22,32 +25,40 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 
         public void Create(Apartment entity)
         {
-            throw new NotImplementedException();
+            apartments.Add(entity);
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var a = apartments.Find(id);
+            if(a is  null) return false;
+            apartments.Remove(a);
+            return true;
         }
 
         public IQueryable<Apartment> Find(Expression<Func<Apartment, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return apartments.Where(predicate);
         }
 
         public Apartment Get(int id, params string[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<Apartment> query = apartments;
+            foreach(string include in includes)
+            {
+                query = query.Include(include);
+            }
+             return query.First(a=>a.ApartmentId == id);
         }
 
         public IQueryable<Apartment> GetAll()
         {
-            throw new NotImplementedException();
+            return apartments.AsQueryable();
         }
 
         public void Update(Apartment entity)
         {
-            throw new NotImplementedException();
+            apartments.Update(entity);
         }
     }
 }

@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 {
+    /// <summary>
+    /// Encapsulates CRUD operations on the Photos table.
+    /// </summary>
     public class EfPhotosRepository : IRepository<Photo>
     {
         private readonly DbSet<Photo> photos;
@@ -22,32 +25,41 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 
         public void Create(Photo entity)
         {
-            throw new NotImplementedException();
+            photos.Add(entity);
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var p = photos.Find(id);
+            if (p is null) return false;
+            photos.Remove(p);
+            return true;
         }
 
         public IQueryable<Photo> Find(Expression<Func<Photo, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return photos.Where(predicate);
         }
 
         public Photo Get(int id, params string[] includes)
         {
-            throw new NotImplementedException();
+
+            IQueryable<Photo> query = photos;
+            foreach (string include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query.First(a => a.PhotoId == id);
         }
 
         public IQueryable<Photo> GetAll()
         {
-            throw new NotImplementedException();
+            return photos.AsQueryable();
         }
 
         public void Update(Photo entity)
         {
-            throw new NotImplementedException();
+            photos.Update(entity);
         }
     }
 }
