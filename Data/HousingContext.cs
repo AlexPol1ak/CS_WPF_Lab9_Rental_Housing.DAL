@@ -1,4 +1,5 @@
-﻿using CS_WPF_Lab9_Rental_Housing.Domain.Entities;
+﻿using CS_WPF_Lab9_Rental_Housing.DAL.Data.ModelConfigurations;
+using CS_WPF_Lab9_Rental_Housing.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,16 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectionString);
+            
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new HouseConfig());
+            modelBuilder.ApplyConfiguration(new ApartmentConfig());
+            modelBuilder.ApplyConfiguration(new PhotoConfig());
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }
