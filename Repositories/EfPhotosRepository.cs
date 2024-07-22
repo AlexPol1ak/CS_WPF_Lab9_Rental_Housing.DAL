@@ -23,6 +23,11 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             this.photos = housingContext.Photos;
         }
 
+        public bool Contains(Photo entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Create(Photo entity)
         {
             photos.Add(entity);

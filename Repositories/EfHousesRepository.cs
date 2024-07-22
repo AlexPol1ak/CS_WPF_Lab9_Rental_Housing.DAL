@@ -61,5 +61,10 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             houses.Update(entity);
         }
 
+        public bool Contains(House entity)
+        {
+            return houses.Contains(entity);
+        }
+
     }
 }

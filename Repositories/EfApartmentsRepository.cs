@@ -23,6 +23,11 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             this.apartments = housingContext.Apartments;
         }
 
+        public bool Contains(Apartment entity)
+        {
+            return apartments.Contains(entity);
+        }
+
         public void Create(Apartment entity)
         {
             apartments.Add(entity);
