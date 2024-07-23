@@ -65,5 +65,10 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         {
             apartments.Update(entity);
         }
+
+        public int Count()
+        {
+            return apartments.Count();
+        }
     }
 }

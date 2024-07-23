@@ -66,5 +66,9 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             return houses.Contains(entity);
         }
 
+        public int Count()
+        {
+            return houses.Count();
+        }
     }
 }

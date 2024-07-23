@@ -66,5 +66,10 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         {
             photos.Update(entity);
         }
+
+        public int Count()
+        {
+            return photos.Count();
+        }
     }
 }
