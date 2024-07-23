@@ -2,12 +2,7 @@
 using CS_WPF_Lab9_Rental_Housing.Domain.Entities;
 using CS_WPF_Lab9_Rental_Housing.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 {
@@ -16,6 +11,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
     /// </summary>
     public class EfApartmentsRepository : IRepository<Apartment>
     {
+        // Apartments table
         private readonly DbSet<Apartment> apartments;
 
         public EfApartmentsRepository(HousingContext housingContext)
@@ -23,16 +19,28 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             this.apartments = housingContext.Apartments;
         }
 
+        #region Basic CRUD operations
+        /// <summary>
+        /// Check to see if there's an apartment
+        /// </summary>
         public bool Contains(Apartment entity)
         {
             return apartments.Contains(entity);
         }
 
+        /// <summary>
+        /// Creat apartment
+        /// </summary>
+        /// <param name="entity">Apartment entity</param>
         public void Create(Apartment entity)
         {
             apartments.Add(entity);
         }
 
+        /// <summary>
+        /// Delete apartment by ID/
+        /// </summary>
+        /// <param name="id">Apartment ID</param>
         public bool Delete(int id)
         {
             var a = apartments.Find(id);
@@ -41,11 +49,18 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             return true;
         }
 
+        /// <summary>
+        /// Apartment search
+        /// </summary>
         public IQueryable<Apartment> Find(Expression<Func<Apartment, bool>> predicate)
         {
             return apartments.Where(predicate);
         }
 
+        /// <summary>
+        /// Get an apartment by ID
+        /// </summary>
+        /// <param name="id">Apartment ID</param>
         public Apartment Get(int id, params string[] includes)
         {
             IQueryable<Apartment> query = apartments;
@@ -55,20 +70,30 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             }
              return query.First(a=>a.ApartmentId == id);
         }
-
+        /// <summary>
+        /// Get all the apartments.
+        /// </summary>
         public IQueryable<Apartment> GetAll()
         {
             return apartments.AsQueryable();
         }
 
+        /// <summary>
+        /// Update apartments.
+        /// </summary>
+        /// <param name="entity"></param>
         public void Update(Apartment entity)
         {
             apartments.Update(entity);
         }
 
+        /// <summary>
+        /// The number of all apartments.
+        /// </summary>
         public int Count()
         {
             return apartments.Count();
         }
+        #endregion
     }
 }

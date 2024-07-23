@@ -1,14 +1,12 @@
 ﻿using CS_WPF_Lab9_Rental_Housing.DAL.Data.ModelConfigurations;
 using CS_WPF_Lab9_Rental_Housing.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Data
 {
+    /// <summary>
+    /// Table Context.
+    /// </summary>
     public class HousingContext : DbContext
     {
         public string ConnectionString {get; private set;}
@@ -24,12 +22,12 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConnectionString);
-            
+            optionsBuilder.UseSqlServer(ConnectionString);          
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Configuration of tables.
             modelBuilder.ApplyConfiguration(new HouseConfig());
             modelBuilder.ApplyConfiguration(new ApartmentConfig());
             modelBuilder.ApplyConfiguration(new PhotoConfig());

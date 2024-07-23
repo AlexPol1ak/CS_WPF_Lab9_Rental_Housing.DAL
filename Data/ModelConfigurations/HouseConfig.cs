@@ -1,11 +1,6 @@
 ﻿using CS_WPF_Lab9_Rental_Housing.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Data.ModelConfigurations
 {

@@ -2,12 +2,7 @@
 using CS_WPF_Lab9_Rental_Housing.Domain.Entities;
 using CS_WPF_Lab9_Rental_Housing.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
 {
@@ -16,6 +11,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
     /// </summary>
     public class EfPhotosRepository : IRepository<Photo>
     {
+        // Photos table
         private readonly DbSet<Photo> photos;
 
         public EfPhotosRepository(HousingContext housingContext)
@@ -23,16 +19,26 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             this.photos = housingContext.Photos;
         }
 
+        #region Basic CRUD operations
+        // Realization is not needed
         public bool Contains(Photo entity)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Create photo entity
+        /// </summary>
+        /// <param name="entity">Photo entity</param>
         public void Create(Photo entity)
         {
             photos.Add(entity);
         }
 
+        /// <summary>
+        /// Delete photo by ID
+        /// </summary>
+        /// <param name="id">Photo ID</param>
         public bool Delete(int id)
         {
             var p = photos.Find(id);
@@ -41,11 +47,17 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             return true;
         }
 
+        /// <summary>
+        /// Photo search.
+        /// </summary>
         public IQueryable<Photo> Find(Expression<Func<Photo, bool>> predicate)
         {
             return photos.Where(predicate);
         }
-
+        
+        /// <summary>
+        /// Get photo by ID.
+        /// </summary>
         public Photo Get(int id, params string[] includes)
         {
 
@@ -57,19 +69,29 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             return query.First(a => a.PhotoId == id);
         }
 
+        /// <summary>
+        /// Get all photos.
+        /// </summary>
         public IQueryable<Photo> GetAll()
         {
             return photos.AsQueryable();
         }
 
+        /// <summary>
+        /// Update photo.
+        /// </summary>
         public void Update(Photo entity)
         {
             photos.Update(entity);
         }
 
+        /// <summary>
+        /// Number of all photos.
+        /// </summary>
         public int Count()
         {
             return photos.Count();
         }
+        #endregion
     }
 }
