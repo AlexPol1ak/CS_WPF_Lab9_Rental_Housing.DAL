@@ -63,7 +63,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
             {
                 query = query.Include(include);
             }
-            return query.First(h=> h.HouseId == id);
+            return query.First(h => h.HouseId == id);
         }
 
         /// <summary>
