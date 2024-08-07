@@ -44,7 +44,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         public bool Delete(int id)
         {
             var a = apartments.Find(id);
-            if(a is  null) return false;
+            if (a is null) return false;
             apartments.Remove(a);
             return true;
         }
@@ -64,11 +64,11 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         public Apartment Get(int id, params string[] includes)
         {
             IQueryable<Apartment> query = apartments;
-            foreach(string include in includes)
+            foreach (string include in includes)
             {
                 query = query.Include(include);
             }
-             return query.First(a=>a.ApartmentId == id);
+            return query.First(a => a.ApartmentId == id);
         }
         /// <summary>
         /// Get all the apartments.

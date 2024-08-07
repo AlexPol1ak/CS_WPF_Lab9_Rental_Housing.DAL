@@ -13,7 +13,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Data.ModelConfigurations
         {
             builder.ToTable("Apartments");
 
-            builder.Property(a=>a.Owner).IsRequired(false);
+            builder.Property(a => a.Owner).IsRequired(false);
             builder.Property(a => a.Owner).HasMaxLength(45);
 
             builder.Property(a => a.OwnerTel).IsRequired(false);

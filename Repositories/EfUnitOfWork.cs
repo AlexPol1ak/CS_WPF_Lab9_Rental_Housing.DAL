@@ -16,7 +16,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         private IRepository<House> housesRepository;
         private IRepository<Apartment> apartmentsRepository;
         private IRepository<Photo> photosRepository;
-        
+
         public IRepository<House> HousesRepository
             => housesRepository ??= new EfHousesRepository(context);
 

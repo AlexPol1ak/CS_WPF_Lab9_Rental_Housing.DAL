@@ -9,7 +9,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Data
     /// </summary>
     public class HousingContext : DbContext
     {
-        public string ConnectionString {get; private set;}
+        public string ConnectionString { get; private set; }
 
         public HousingContext(string connectionString)
         {
@@ -22,7 +22,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConnectionString);          
+            optionsBuilder.UseSqlServer(ConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

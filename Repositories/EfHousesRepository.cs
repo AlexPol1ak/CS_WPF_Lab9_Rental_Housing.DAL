@@ -37,7 +37,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         public bool Delete(int id)
         {
             var h = houses.Find(id);
-            if(h is null) return false;
+            if (h is null) return false;
             houses.Remove(h);
             return true;
         }
@@ -59,7 +59,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         public House Get(int id, params string[] includes)
         {
             IQueryable<House> query = houses;
-            foreach(var include in includes)
+            foreach (var include in includes)
             {
                 query = query.Include(include);
             }

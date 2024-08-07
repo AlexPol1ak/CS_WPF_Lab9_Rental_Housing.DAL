@@ -54,7 +54,7 @@ namespace CS_WPF_Lab9_Rental_Housing.DAL.Repositories
         {
             return photos.Where(predicate);
         }
-        
+
         /// <summary>
         /// Get photo by ID.
         /// </summary>
