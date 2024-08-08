@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CS_WPF_Lab9_Rental_Housing.DAL.Repositories.EfApartmentsRepository" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAACBAAAAAAAQAAAEIAEAAAgAAAAAQAAA=</HashCode>
+      <FileName>Repositories\EfApartmentsRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="apartments" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CS_WPF_Lab9_Rental_Housing.DAL.Repositories.EfHousesRepository" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAQAAAEIAEAAAgAAAAASAAA=</HashCode>
+      <FileName>Repositories\EfHousesRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="houses" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CS_WPF_Lab9_Rental_Housing.DAL.Repositories.EfPhotosRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAIAAAAABAAAAAAAQAAAEIAEAAAgAAAAAQAAA=</HashCode>
+      <FileName>Repositories\EfPhotosRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="photos" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CS_WPF_Lab9_Rental_Housing.DAL.Repositories.EfUnitOfWork" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAACAAAAAAAAAAgBAAAAAFABAAQAAAAAACAAEAAAAAA=</HashCode>
+      <FileName>Repositories\EfUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="context" />
+      <Property Name="HousesRepository" />
+      <Property Name="ApartmentsRepository" />
+      <Property Name="PhotosRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Microsoft.EntityFrameworkCore.DbSet&lt;TEntity&gt;" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CS_WPF_Lab9_Rental_Housing.DAL.Data.HousingContext">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAQAAACAAAAAgAAAAEAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Data\HousingContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Housing" />
+      <Property Name="Apartments" />
+      <Property Name="Photos" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="CS_WPF_Lab9_Rental_Housing.Domain.Interfaces.IRepository&lt;TEntity&gt;">
+    <Position X="12" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
